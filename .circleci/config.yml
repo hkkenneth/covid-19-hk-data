@@ -14,8 +14,8 @@ jobs:
     steps:
     - checkout
     - add_ssh_keys:
-      fingerprints:
-        - "ac:89:99:c4:d9:0e:90:66:0c:f1:5c:57:2e:46:4f:0e"
+        fingerprints:
+          - "ac:89:99:c4:d9:0e:90:66:0c:f1:5c:57:2e:46:4f:0e"
     - run:
         command: |
           pwd
