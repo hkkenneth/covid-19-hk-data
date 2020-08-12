@@ -12,11 +12,12 @@ jobs:
       Checkout Git Repo.
     executor: default
     steps:
+    - checkout
     - run:
         command: |
           pwd
           ls -lah
-          git status
+          #git status
           #git config user.email "hkkenneth@gmail.com"
           #git config user.name "CircleCI Job"
           #git checkout master
@@ -26,7 +27,7 @@ jobs:
           #git add local_situation_covid19_tc.pdf
           #git commit --allow-empty -am "Automatic commit from CircleCI [skip ci]"
           #git push origin master
-        name: git-checkout-curl-commit-push
+        name: Git Checkout Curl Commit Push
   download:
     description: |
       Download COVID-19 data in HK from the Internet.
