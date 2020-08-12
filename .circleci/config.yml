@@ -17,16 +17,16 @@ jobs:
         command: |
           pwd
           ls -lah
-          #git status
-          #git config user.email "hkkenneth@gmail.com"
-          #git config user.name "CircleCI Job"
-          #git checkout master
-          #curl -O https://www.chp.gov.hk/files/pdf/local_situation_covid19_en.pdf
-          #git add local_situation_covid19_en.pdf
-          #curl -O https://www.chp.gov.hk/files/pdf/local_situation_covid19_tc.pdf
-          #git add local_situation_covid19_tc.pdf
-          #git commit --allow-empty -am "Automatic commit from CircleCI [skip ci]"
-          #git push origin master
+          git status
+          git config user.email "hkkenneth@gmail.com"
+          git config user.name "CircleCI Job"
+          git checkout master
+          curl -O https://www.chp.gov.hk/files/pdf/local_situation_covid19_en.pdf
+          git add local_situation_covid19_en.pdf
+          curl -O https://www.chp.gov.hk/files/pdf/local_situation_covid19_tc.pdf
+          git add local_situation_covid19_tc.pdf
+          git commit --allow-empty -am "Automatic commit from CircleCI [skip ci]"
+          git push origin master
         name: Git Checkout Curl Commit Push
   download:
     description: |
