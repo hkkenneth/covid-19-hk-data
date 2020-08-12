@@ -1,9 +1,22 @@
+description: |
+  Download COVID-19 data in HK from the Internet.
+executors:
+  default:
+    description: |
+      Basic Docker image
+    docker:
+    - image: image: cimg/base:2020.01
+jobs:
+  run:
+    description: |
+      Download COVID-19 data in HK from the Internet.
+    executor: default
+    steps:
+    - run:
+        command: curl -O https://www.chp.gov.hk/files/pdf/local_situation_covid19_en.pdf
+        name: download-local-situation-en-pdf
 # Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-# Use a package of configuration called an orb.
-orbs:
-  # Declare a dependency on the welcome-orb
-  welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
