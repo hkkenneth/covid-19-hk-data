@@ -23,8 +23,8 @@ jobs:
           git status
           git config user.email "hkkenneth@gmail.com"
           git config user.name "CircleCI Job"
-          git checkout master
           date=$(date '+%Y-%m-%d')
+          git checkout -b $date
           mkdir -p $date
           cd $date
           curl -O https://www.chp.gov.hk/files/pdf/local_situation_covid19_en.pdf
@@ -36,7 +36,7 @@ jobs:
           curl -O https://www.chp.gov.hk/files/pdf/building_list_chi.pdf
           git add building_list_chi.pdf
           git commit --allow-empty -am "Automatic commit from CircleCI [skip ci]"
-          git push origin master
+          git push origin $date
         name: Git Checkout Curl Commit Push
   download:
     description: |
@@ -61,7 +61,8 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: "20 15 * * *"
+          # 3AM HKT
+          cron: "0 19 * * *"
           filters:
             branches:
               only:
