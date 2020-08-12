@@ -25,7 +25,7 @@ jobs:
           git config user.name "CircleCI Job"
           git checkout master
           date=$(date '+%Y-%m-%d')
-          mkdir $date
+          mkdir -p $date
           cd $date
           curl -O https://www.chp.gov.hk/files/pdf/local_situation_covid19_en.pdf
           git add local_situation_covid19_en.pdf
