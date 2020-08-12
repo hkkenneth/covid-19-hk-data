@@ -28,6 +28,10 @@ jobs:
           git add local_situation_covid19_en.pdf
           curl -O https://www.chp.gov.hk/files/pdf/local_situation_covid19_tc.pdf
           git add local_situation_covid19_tc.pdf
+          curl -O https://www.chp.gov.hk/files/pdf/building_list_eng.pdf
+          git add building_list_eng.pdf
+          curl -O https://www.chp.gov.hk/files/pdf/building_list_chi.pdf
+          git add building_list_chi.pdf
           git commit --allow-empty -am "Automatic commit from CircleCI [skip ci]"
           git push origin master
         name: Git Checkout Curl Commit Push
@@ -49,5 +53,15 @@ workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
+    jobs:
+      - all
+  nightly:
+    triggers:
+      - schedule:
+          cron: "45 * * * *"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - all
