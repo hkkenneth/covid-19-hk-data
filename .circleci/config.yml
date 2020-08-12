@@ -24,6 +24,9 @@ jobs:
           git config user.email "hkkenneth@gmail.com"
           git config user.name "CircleCI Job"
           git checkout master
+          date=$(date '+%Y-%m-%d')
+          mkdir $date
+          cd $date
           curl -O https://www.chp.gov.hk/files/pdf/local_situation_covid19_en.pdf
           git add local_situation_covid19_en.pdf
           curl -O https://www.chp.gov.hk/files/pdf/local_situation_covid19_tc.pdf
@@ -58,10 +61,10 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: "45 * * * *"
+          cron: "*/5 * * * *"
           filters:
             branches:
               only:
-                - master
+                - circleci-project-setup
     jobs:
       - all
